@@ -1,0 +1,325 @@
+.roadmap-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  
+  .roadmap-header h1 {
+    font-size: 24px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  
+  .roadmap-header p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 16px;
+  }
+  
+  .roadmap-progress {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .progress-bar {
+    height: 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  
+  .progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+  }
+  
+  .progress-text {
+    text-align: center;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  .roadmap-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    .roadmap-container {
+      grid-template-columns: 300px 1fr;
+    }
+  
+    .step-details {
+      grid-column: 1 / -1;
+    }
+  }
+  
+  .roadmap-modules {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .roadmap-module {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .roadmap-module:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .roadmap-module.active {
+    border-left: 4px solid var(--primary);
+    background-color: rgba(102, 126, 234, 0.05);
+  }
+  
+  .module-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .module-number {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  .module-title {
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--text-primary);
+    flex: 1;
+  }
+  
+  .module-progress {
+    font-size: 12px;
+    color: var(--primary);
+    font-weight: 600;
+  }
+  
+  .module-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    padding-left: 34px;
+  }
+  
+  .module-progress-bar {
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  
+  .module-progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    transition: width 0.3s ease;
+  }
+  
+  .roadmap-steps {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .steps-header {
+    padding: 15px;
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .steps-header h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    color: var(--text-primary);
+  }
+  
+  .steps-header p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  .steps-list {
+    padding: 30px;
+  }
+  
+  .step-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .step-item:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .step-item.active {
+    background-color: rgba(102, 126, 234, 0.1);
+  }
+  
+  .step-item.completed {
+    opacity: 0.8;
+  }
+  
+  .step-icon {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    font-size: 16px;
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .step-title {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+  
+  .step-info {
+    display: flex;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-secondary);
+  }
+  
+  .step-type {
+    padding: 2px 6px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+  }
+  
+  .step-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+  }
+  
+  .status-completed {
+    color: var(--success);
+    font-weight: bold;
+  }
+  
+  .status-pending {
+    color: var(--primary);
+  }
+  
+  .step-details {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+  }
+  
+  .step-type-badge {
+    padding: 4px 8px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .step-content-text {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  
+  .article-preview,
+  .video-placeholder,
+  .quiz-preview {
+    background-color: rgba(0, 0, 0, 0.02);
+    padding: 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+  
+  .video-container {
+    position: relative;
+    height: 180px;
+    background-color: #000;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  .video-play-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+  }
+  
+  .video-title {
+    position: absolute;
+    bottom: 30px;
+    left: 15px;
+    font-weight: 500;
+  }
+  
+  .video-duration {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  
+  .completion-status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-top: 20px;
+  }
+  
+  .completion-status.completed {
+    color: var(--success);
+    font-weight: 500;
+  }
+  
+  .status-icon {
+    margin-right: 6px;
+  }
+  
+  

@@ -1,0 +1,337 @@
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-light);
+}
+
+.content-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+  flex: 1;
+}
+
+.welcome-section {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.welcome-section h1 {
+  font-size: 24px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.welcome-section p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+}
+
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Learning Progress Card */
+.progress-overview {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.circular-progress {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+}
+
+.circular-progress svg {
+  width: 100%;
+  height: 100%;
+}
+
+.progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.progress-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.progress-details p {
+  margin: 4px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.progress-details p:first-child {
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.module-list {
+  margin: 16px 0;
+}
+
+.module-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+  font-size: 14px;
+}
+
+.module-item:last-child {
+  border-bottom: none;
+}
+
+.module-name {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.module-status {
+  font-size: 13px;
+  color: var(--text-light);
+}
+
+.module-item.completed .module-status {
+  color: var(--success);
+}
+
+/* Notifications Card */
+.notification-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.notification-item {
+  display: flex;
+  padding: 12px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.02);
+  transition: background-color 0.2s;
+}
+
+.notification-item.unread {
+  background-color: rgba(102, 126, 234, 0.05);
+  position: relative;
+}
+
+.notification-item.unread::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--primary);
+}
+
+.notification-icon {
+  margin-right: 12px;
+}
+
+.icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  font-size: 16px;
+}
+
+.blue {
+  background-color: #e6f0ff;
+}
+
+.green {
+  background-color: #e6fff0;
+}
+
+.purple {
+  background-color: #f0e6ff;
+}
+
+.orange {
+  background-color: #fff0e6;
+}
+
+.notification-content {
+  flex: 1;
+}
+
+.notification-text {
+  margin: 0 0 4px 0;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.notification-time {
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+/* Hot Topics Card */
+.topics-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.topic-item {
+  padding: 12px;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s;
+}
+
+.topic-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.topic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.topic-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-primary);
+}
+
+.topic-tag {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 16px;
+  background-color: #ffebee;
+  color: var(--error);
+}
+
+.topic-tag:contains("Hot") {
+  background-color: #ffebee;
+  color: var(--error);
+}
+
+.topic-tag:contains("Trending") {
+  background-color: #e8f5e9;
+  color: var(--success);
+}
+
+.topic-description {
+  margin: 0 0 12px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.topic-link {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.topic-link:hover {
+  text-decoration: underline;
+}
+
+/* Daily Quiz Card */
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.quiz-question {
+  font-size: 16px;
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.quiz-option {
+  display: flex;
+  align-items: center;
+}
+
+.quiz-option input[type="radio"] {
+  margin-right: 8px;
+}
+
+.quiz-option label {
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.quiz-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-top: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+  .progress-overview {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .progress-details {
+    text-align: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .welcome-section h1 {
+    font-size: 28px;
+  }
+
+  .card-header h2 {
+    font-size: 20px;
+  }
+}
+
