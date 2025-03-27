@@ -1,24 +1,44 @@
-"use client"
-
-import { useState } from "react"
-import "./Login.css"
-import logo from "./logo513.png"
+// src/Login.js
+import { useState } from "react";
+import { loginUser, registerUser } from "./firebase/auth";
+import "./Login.css";
+import logo from "./logo513.png";
 
 function Login({ onLogin }) {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [error, setError] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isSignup, setIsSignup] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
 
-    // Check if the credentials match
-    if (email === "user@email.com" && password === "admin") {
-      onLogin()
-    } else {
-      setError("Invalid email or password")
+    try {
+      let result;
+      
+      if (isSignup) {
+        // Register new user
+        result = await registerUser(email, password);
+      } else {
+        // Login existing user
+        result = await loginUser(email, password);
+      }
+
+      if (result.success) {
+        onLogin();
+      } else {
+        setError(result.error);
+      }
+    } catch (error) {
+      setError("Authentication failed. Please try again.");
+      console.error(error);
     }
-  }
+
+    setLoading(false);
+  };
 
   return (
     <div className="login-container">
@@ -54,27 +74,22 @@ function Login({ onLogin }) {
             />
           </div>
 
-          <button type="submit" className="login-button">
-            Log In
+          <button type="submit" className="login-button" disabled={loading}>
+            {loading ? "Processing..." : isSignup ? "Sign Up" : "Log In"}
           </button>
         </form>
 
         <div className="login-footer">
           <p>
-            Not a member? <span className="signup-link">Sign up</span>
-          </p>
-          <p>
-
-            This is a MVP for GDG Solutions challenge. We do not have a database to store users and give a personalized experience yet. 
-            This is a concept MVP yet to be completely functional. 
-            Use "user@email.com" as email and "admin" as password to login.
-            PS: Try out our personalized AI chat powered by Gemini 2.0 :)
+            {isSignup ? "Already have an account?" : "Not a member?"}{" "}
+            <span className="signup-link" onClick={() => setIsSignup(!isSignup)}>
+              {isSignup ? "Log In" : "Sign Up"}
+            </span>
           </p>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
-
+export default Login;

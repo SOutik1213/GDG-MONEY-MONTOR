@@ -1,0 +1,95 @@
+.stock-chart-container {
+    background-color: var(--bg-card);
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  
+  .price-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .current-price {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+  
+  .price-change {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 4px 8px;
+    border-radius: 6px;
+  }
+  
+  .price-change.positive {
+    background-color: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+  }
+  
+  .price-change.negative {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+  }
+  
+  .timeframe-selector {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .timeframe-selector button {
+    background-color: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .timeframe-selector button:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+  
+  .timeframe-selector button.active {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+  }
+  
+  .chart-container {
+    height: 300px;
+    position: relative;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .chart-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  
+    .timeframe-selector {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .timeframe-selector button {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  
+  

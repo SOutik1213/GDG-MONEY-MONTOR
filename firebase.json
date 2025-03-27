@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "money-mentor",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}
