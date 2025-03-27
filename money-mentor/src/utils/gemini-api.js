@@ -1,8 +1,7 @@
 import { GoogleGenerativeAI } from "@google/generative-ai"
-import { GOOGLE_AI_API_KEY, GOOGLE_AI_MODEL, SYSTEM_INSTRUCTION } from "../config/apikeys"
-
+const apiKey = process.env.REACT_APP_API_KEY;
 // Initialize the Google Generative AI with the API key from config
-const genAI = new GoogleGenerativeAI(GOOGLE_AI_API_KEY)
+const genAI = new GoogleGenerativeAI(apiKey)
 
 // Generation config
 const generationConfig = {
@@ -20,8 +19,8 @@ export const initChatSession = async () => {
   try {
     // Get the model with system instruction
     const model = genAI.getGenerativeModel({
-      model: GOOGLE_AI_MODEL,
-      systemInstruction: SYSTEM_INSTRUCTION,
+      model: "gemini-2.0-flash",
+      systemInstruction: "You are an AI guide for an website called money mentor. Your job is to promote financial literacy, give financial tips and explain financial concepts to users. Use simple friendly languange and explain everything with a personal tone. Our website also had sections to learn which has videos and articles and books for the user, It has a community feed to ask doubts and stay updated, it has feed section where financial experts post tips and update market trends. If the user wants to talk about any other topic other than finances and related ecomonics, decline politely. Do give investment tips and suggest tips based on current market. Be a financial and investment advisor",
     })
 
     // Start a chat session
