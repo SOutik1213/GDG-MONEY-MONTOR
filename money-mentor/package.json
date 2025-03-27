@@ -12,8 +12,10 @@
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
     "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
     "seedrandom": "^3.0.5",
-    "web-vitals": "^2.1.4"
+    "@google/generative-ai": "^0.24.0"
+    
   },
   "scripts": {
     "start": "react-scripts start",
